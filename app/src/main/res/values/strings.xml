@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">InTimeCashManager</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="calendar_button">달력</string>
+    <string name="list_button">내역</string>
+    <string name="statistic_button">통계</string>
+    <string name="setting_button">설정</string>
+    <string name="basic_setting">기본 설정</string>
+    <string name="login_info">로그인 정보</string>
+    <string name="pass_lock">암호 잠금</string>
+    <string name="category_manage">분류 관리</string>
+    <string name="income_category_manage">수입분류 관리</string>
+    <string name="expense_category_manage">지출분류 관리</string>
+    <string name="card_manage">카드 관리</string>
+    <string name="account_manage">현금계좌 관리</string>
+    <string name="list_manage">내역 관리</string>
+    <string name="favorite_list_manage">자주쓰는 내역 관리</string>
+    <string name="fixed_list_manage">고정금액 관리</string>
+    <string name="goal_and_budget_manage">목표 및 예산 관리</string>
+    <string name="goal_manage">목표 관리</string>
+    <string name="budget_manage">예산 관리</string>
+    <string name="data_init">데이터 초기화</string>
+    <string name="money_part_init">수입/지출 내역만 초기화(통장,카드,고정금액,분류는 유지)</string>
+    <string name="whole_data_init">가계부 전체 초기화</string>
+    <string name="button_add_money">추가하기</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
