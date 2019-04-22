@@ -122,7 +122,7 @@ public class DatabaseCreate extends SQLiteOpenHelper {
     public void deleteItem(String table, String selectedItem){
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL("DELETE FROM " + table + " WHERE listItem ='" + selectedItem + "';");
-        Log.d("Custom", table + "의 레퍼런스 "  + selectedItem + " 항목을 삭제합니다.");
+        Log.i("Custom", table + "의 레퍼런스 "  + selectedItem + " 항목을 삭제합니다.");
         db.close();
     }
 

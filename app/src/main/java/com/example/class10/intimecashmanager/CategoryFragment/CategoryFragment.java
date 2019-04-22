@@ -1,7 +1,6 @@
-package com.example.class10.intimecashmanager.CategoryExpenseFragment;
+package com.example.class10.intimecashmanager.CategoryFragment;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -16,7 +15,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -98,7 +96,7 @@ public class CategoryFragment extends Fragment {
 
 
 
-        Log.d("동환", "oncreateView : sentence = " + sqlSelectSentence + " table명 = " + table);
+        Log.d("Custom", "oncreateView : sentence = " + sqlSelectSentence + " table명 = " + table);
 
         arrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, itemList);
         listView.setAdapter(arrayAdapter);

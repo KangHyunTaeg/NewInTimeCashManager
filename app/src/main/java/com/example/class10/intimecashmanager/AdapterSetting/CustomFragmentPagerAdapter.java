@@ -1,21 +1,14 @@
 package com.example.class10.intimecashmanager.AdapterSetting;
 
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.util.Log;
 
-import com.example.class10.intimecashmanager.CategoryExpenseFragment.CategoryFragment;
+import com.example.class10.intimecashmanager.CategoryFragment.CategoryFragment;
 import com.example.class10.intimecashmanager.StatisticsFragment.StatisticBudgetFragment;
 import com.example.class10.intimecashmanager.StatisticsFragment.StatisticCardFragment;
 import com.example.class10.intimecashmanager.StatisticsFragment.StatisticCategoryFragment;
 import com.example.class10.intimecashmanager.StatisticsFragment.StatisticGoalFragment;
-import com.example.class10.intimecashmanager.SubAtcivities.CategoryManager;
-
-import java.util.ArrayList;
-import java.util.List;
 
 // 탭과 탭에 대응되는 뷰페이저에 프래그먼트를 인플레이트 시키는 클래스 (동일 목적 공용 기능)
 public class CustomFragmentPagerAdapter extends FragmentStatePagerAdapter {

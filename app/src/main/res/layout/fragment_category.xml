@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    tools:context=".CategoryExpenseFragment.CategoryFragment">
+    tools:context=".CategoryFragment.CategoryFragment">
 
     <!-- TODO: Update blank fragment layout -->
 

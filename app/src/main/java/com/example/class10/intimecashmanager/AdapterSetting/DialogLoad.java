@@ -8,7 +8,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -18,9 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.class10.intimecashmanager.CategoryExpenseFragment.CategoryFragment;
 import com.example.class10.intimecashmanager.R;
-import com.example.class10.intimecashmanager.SubAtcivities.CategoryManager;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
