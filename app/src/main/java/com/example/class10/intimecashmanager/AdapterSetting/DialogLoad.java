@@ -70,18 +70,13 @@ public class DialogLoad {
 
         // my 리스트뷰 세팅
         List<ItemData> data = new ArrayList<>();
+        ItemData itemData = new ItemData();
         for(int i=0; i<usageID.size(); i++){
-            // data.add(new ItemData(dateList.get(i), imgBtnCategoryID.get(i), usageID.get(i), supCategoryID.get(i), subCategoryID.get(i), moneyList.get(i)));
+
         }
 
         adapter = new ListViewAdapter(context, data);
         listFavorite.setAdapter(adapter);
-
-
-
-
-
-
 
 
         dlg.setTitle("# 항목 추가");
@@ -142,7 +137,7 @@ public class DialogLoad {
     }
 
 
-    public static void DialogUpdateMenu(Context context, final int num,  final String table, final String[] columns, final ListView list, final ArrayList<String> arrayList, final String selectedItem){
+    public static void DialogUpdateMenu(Context context, final String table, final String selectedItem){
         dialogView[0] = (View)View.inflate(context, R.layout.dialog_update_menu, null);
         edtUpdateMenu = (EditText)dialogView[0].findViewById(R.id.edtUpdateMenu);
 
@@ -158,10 +153,9 @@ public class DialogLoad {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String updateItem = edtUpdateMenu.getText().toString();
-                // sqlDB.execSQL("UPDATE homeListInExpnseCategoryTBL SET homeList='"+ updateItem +"', WHERE homeList='"+ selectedItem +"';");
-                sqlDB.execSQL("UPDATE "+ table + " SET " + columns[0] + "='" + updateItem + "' WHERE " + columns[0] + " = '" + selectedItem + "';");
-                arrayList.remove(arrayList.get(num));
-                arrayList.add(updateItem);
+                sqlDB.execSQL("UPDATE "+ table + " SET listItem ='" + updateItem + "' WHERE listItem = '" + selectedItem + "';");
+                // itemList.remove(arrayList.get(num));
+                // itemList.add(updateItem);
                 sqlDB.close();
             }
         });

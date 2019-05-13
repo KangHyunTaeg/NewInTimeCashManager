@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +23,7 @@ import com.example.class10.intimecashmanager.AdapterSetting.DatabaseCreate;
 import com.example.class10.intimecashmanager.AdapterSetting.DialogLoad;
 import com.example.class10.intimecashmanager.AdapterSetting.ItemData;
 import com.example.class10.intimecashmanager.AdapterSetting.ListViewAdapter;
+import com.example.class10.intimecashmanager.SubAtcivities.CategoryManager;
 import com.example.class10.intimecashmanager.SubAtcivities.ExpenseInsert;
 
 import java.util.ArrayList;
@@ -48,6 +50,9 @@ public class IncomeExpenseList extends AppCompatActivity {
     ArrayList<Integer> supCategoryID;
     ArrayList<Integer> subCategoryID;
     ArrayList<Integer> moneyList;
+
+    int useSupCategory = 0; // 대분류
+    int useSubCategory = 0; // 소분류
 
 
     @Override
@@ -139,7 +144,9 @@ public class IncomeExpenseList extends AppCompatActivity {
         /*tvSearchCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogLoad.DialogSearchCategory(IncomeExpenseList.this);
+                Intent intent = new Intent(getApplicationContext(), CategoryManager.class);
+                intent.putExtra("CHECK_INT", 1); // 인텐트된 액티비티에서 1을 받을 경우와 2를 받을 경우 다른 액션을 주기 위해
+                startActivityForResult(intent, 101);
             }
         });*/
 
@@ -215,5 +222,27 @@ public class IncomeExpenseList extends AppCompatActivity {
         String StartPeriod = btnStartPeriod.getText().toString();
         String EndPeriod = btnEndPeriod.getText().toString();
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 101 && resultCode == RESULT_OK){
+            // 지출 카테고리 프레그먼트로 보냈다가 다시 받은 데이터를 처리
+            Bundle bundle = data.getExtras();
+
+            int supMenuNameID = bundle.getInt("supMenuNameID");
+            String supMenuName = bundle.getString("supMenuName");
+            int subMenuNameID = bundle.getInt("subMenuNameID");
+            String subMenuName = bundle.getString("subMenuName");
+            int checkNum = bundle.getInt("checkNum");
+
+            if(checkNum == 1){
+                tvSearchCategory.setText(supMenuName + " > " + subMenuName);
+
+                useSupCategory = supMenuNameID;
+                useSubCategory = subMenuNameID;
+            }
+        }
     }
 }

@@ -46,7 +46,7 @@ public class CategoryFragment extends Fragment {
     String selectedItem; // 리스트뷰에서 선택한 아이템 값을 담는 변수
     String selectedItemLong; // 리스트뷰에서 롱클릭시 선택한 아이템 값을 담는 변수
     int tabPosition; // 현재 선택된 탭이 몇 번째인지를 담는 변수
-    long num; // 롱클릭시 선택한 아이템의 position
+    int num; // 롱클릭시 선택한 아이템의 position
 
     ArrayList<String> supMenuNameList = new ArrayList<>(); // 대메뉴 이름 구할 배열
     String supMenuName; // 대메뉴 이름
@@ -193,7 +193,7 @@ public class CategoryFragment extends Fragment {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                num = id; // 포지션의 인덱스 번호
+                num = position; // 포지션의 인덱스 번호
                 selectedItemLong = listView.getItemAtPosition(position).toString(); // 포지션에 해당되는 아이템이름
 
                 Log.i("Custom", "1. 롱클릭으로 (" + CategoryManager.tabPosition + ") 번째 탭의  (" + num + ") 번째 아이템인 (" + selectedItemLong + ")을 선택하셨습니다");
@@ -252,8 +252,11 @@ public class CategoryFragment extends Fragment {
 //                Log.i("동환", "4. DELETE 실행 후 selectedItem 변수에 남은 값 : " + selectedItemLong);
                 return true;
             case 2:
-
-                // DialogLoad.DialogUpdateMenu(getContext(), num, table, columns, listViewCategory, arrayList, selectedItem);
+                Log.i("Custom", "2. 롱클릭 수정 선택을 클릭했을 때, (" + CategoryManager.tabPosition + ") 번째 탭의  (" + num + ") 번째 아이템인 (" + selectedItemLong + ")이 동일변수에 할당되었습니다");
+                DialogLoad.DialogUpdateMenu(getContext(),table, selectedItemLong);
+                arrayAdapter.clear();
+                itemList = myDB.selectSingleDB(sqlSelectSentence); //디비에서 리스트 가져옴
+                arrayAdapter.addAll(itemList);
                 arrayAdapter.notifyDataSetChanged();
                 return true;
         }

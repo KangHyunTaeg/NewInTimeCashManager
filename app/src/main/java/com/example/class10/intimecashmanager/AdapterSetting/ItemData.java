@@ -31,6 +31,10 @@ public class ItemData {
     private String supCategoryName;  // category name test
     private String subCategoryName;  // category name test
 
+    public ItemData(){
+
+    }
+
     //public ItemData(String dateExpenseIncome, int imgCategory, String usage, int useCategory, int useSubCategory, int sumMoney){ // category name test
     public ItemData(String dateExpenseIncome, int imgCategory, String usage, String supCategoryName, String subCategoryName, int sumMoney){
         this.dateExpenseIncome = dateExpenseIncome;
@@ -40,6 +44,7 @@ public class ItemData {
         this.subCategoryName = subCategoryName;
         this.sumMoney = sumMoney;
     }
+
 
     public String getSupCategoryName(){return supCategoryName;}
     public String getSubCategoryName(){return subCategoryName;}
